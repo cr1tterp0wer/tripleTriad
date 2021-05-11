@@ -105,7 +105,6 @@ $cardWidth: $cardHeight * $ratio;
 }
 
 .tBoard {
-
 	display: grid;
 	margin: 0 auto;
 	grid-gap: 10px;
@@ -113,14 +112,23 @@ $cardWidth: $cardHeight * $ratio;
 	grid-template-rows: repeat(3, $cardHeight);
 
 	.tSocket {
-		background: #990033;
-		background: rgba(1,1,1,0.06);
 		border: 1px solid rgba(1,1,1,0.1);
 		border-radius: 20px;
 		box-shadow: inset 3px 3px 11px;
 		width: 100%;
 		height: 100%;
+	}
 
+	&.playerOneTurn {
+		.tSocket{
+			background: #990033;
+		}
+	}
+
+	&.playerTwoTurn {
+		.tSocket {
+			background: #009916;
+		}
 	}
 
 }
