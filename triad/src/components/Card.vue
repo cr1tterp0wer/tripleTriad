@@ -1,5 +1,5 @@
 <template>
-	<div class="tCard" v-click='this.select'>
+	<div class="tCard">
 		<img class="tCardImg" :src='this.url' />
 	</div>
 </template>
@@ -23,13 +23,10 @@ export default {
 			url: ''
 		};
 	},
-	methods: {
-		clicked() {
-		}
-	},
 	mounted() {
 		this.globalDeck = triadData.results;
 		this.url = this.globalDeck[this.ID - 1].image;
+		console.log(this.globalDeck[this.ID - 1]);
 	}
 };
 </script>

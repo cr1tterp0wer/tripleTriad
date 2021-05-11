@@ -3,11 +3,19 @@
 	<div class="GameBoard">
 
 		<div class="tPlayerOne playerHand">
-			<ul id="tPlayerOneHand">
-				<li v-for="(card, index) in playerOne" v-bind:key="index">
-					<Card :key="index" :cardID="card"></Card>
-				</li>
-			</ul>
+			<div class="playerBoard">
+				<div class="cardStats">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+				<ul id="tPlayerOneHand">
+					<li v-for="(card, index) in playerOne" v-bind:key="index">
+						<Card :key="index" :cardID="card"></Card>
+					</li>
+				</ul>
+			</div>
 		</div>
 
 		<div class="tBoard">
@@ -27,8 +35,8 @@
 		</div>
 
 		<div class="tPlayerTwo playerHand">
-			<ul id="tPlayerOneHand">
-				<li v-for="(card, index) in playerOne" v-bind:key="index">
+			<ul id="tPlayerTwoHand">
+				<li v-for="(card, index) in playerTwo" v-bind:key="index">
 					<Card :key="index" :cardID="card"></Card>
 				</li>
 			</ul>
@@ -50,6 +58,7 @@ export default {
 	data() {
 		return {
 			playerOne: [],
+			playerOneSelectedIndex: 0,
 			playerTwo: []
 		};
 	},
@@ -72,7 +81,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 $ratio: 0.7142857143;
 $cardHeight: 200px;
 $cardWidth: $cardHeight * $ratio;
@@ -86,6 +94,8 @@ $cardWidth: $cardHeight * $ratio;
 		ul {
 			display: grid;
 			list-style: none;
+			margin: 0;
+			padding: 0;
 
 			li {
 				max-height: 100px;
@@ -103,9 +113,14 @@ $cardWidth: $cardHeight * $ratio;
 	grid-template-rows: repeat(3, $cardHeight);
 
 	.tSocket {
-		background: blue;
+		background: #990033;
+		background: rgba(1,1,1,0.06);
+		border: 1px solid rgba(1,1,1,0.1);
+		border-radius: 20px;
+		box-shadow: inset 3px 3px 11px;
 		width: 100%;
 		height: 100%;
+
 	}
 
 }
